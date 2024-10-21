@@ -1,6 +1,5 @@
 import openpyxl.workbook
-from pypdf import PdfReader, PdfWriter
-import json, urllib.request, openpyxl, time
+import json, openpyxl, time
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from openpyxl import styles
@@ -9,7 +8,7 @@ from turfpy.measurement import boolean_point_in_polygon
 from geojson import Point, Polygon, Feature
 
 # The class to find all heritage properties listed on popular realty websites
-class HeritagePropertyFinder:
+class R1_Finder:
     def __init__(self,
                     # The URL to retrieve the PDF from 
                     url: str = "https://guidelines.vancouver.ca/policy-vancouver-heritage-register.pdf",
@@ -41,47 +40,6 @@ class HeritagePropertyFinder:
         self.driver = webdriver.Firefox(options=options)
         #self.vancouver_api_key = "f6aba1995ad5dcbd2f37c943d36001f1fcfa7441c6243868fa1a0792"
         #self.rentcast_key = "533d316d4fc54e3aac177815ae86d2f6"
-        
-    # Update the heritage properties PDF
-    def update_pdf(self) -> None:
-        path = f"{self.path}/buildings.pdf"
-        # Retrieve the PDF from the url
-        urllib.request.urlretrieve(self.url, path)
-        # Create the reader and writer to trim the PDF
-        reader = PdfReader(path)
-        writer = PdfWriter()
-
-        # Add all pages with property data to a new PDF
-        for page in reader.pages[8:]:
-            writer.add_page(page)
-        # Save the new PDF
-        with open(path, "wb") as f:
-            writer.write(f)    
-    
-    # When there's a dash, add all building numbers within those two numbers to the buildings list
-    def handle_dash(self, line: str) -> str:
-        # Split the line between all dashes
-        numbers = line.split("-")
-        # Split the second half of the line
-        nums_and_address = numbers[1].split()
-        # Get all the numbers from the line
-        numbers = [int(numbers[0].strip()), int(nums_and_address[0])]
-        # Create the street name from the line
-        street = ""
-        for word in nums_and_address[1:]:
-            if word != "":
-                street += f"{word} "
-        # Add all the addresses from the numbers to a string
-        addresses = ""
-        for street_num in range(numbers[0], numbers[1]):
-            addresses += f"{street_num} {street}\n"
-        return addresses
-    
-    # Save the building data to a .txt file
-    def save_text(self, text: str) -> None:
-        # Save the data to a .txt file
-        with open(f"{self.path}/buildings.txt", "w") as f:
-            f.write(text)
             
     def get_sq_ft(self, address: str) -> float:
         address_data = {}
@@ -91,30 +49,6 @@ class HeritagePropertyFinder:
             return 0
         polygon = address_data["geom"]["geometry"]
         return round(area(polygon) * 10.764, 2)
-        
-    # Format the line for better readability
-    def format_heritage_line(self, line: str) -> str:
-        new_line: str = ""
-        space_cnt = 0
-        section_cnt = 0
-        # For each letter in the line, format it a certain way
-        for letter in line:
-            # Change the non UTF-8 readable apostraphe to a readable one
-            if letter == "’":
-                letter = "'"
-            # If there's two spaces in a row twice, stop
-            # This stops most of the titles of the buildings from getting into the addresses
-            elif letter == " ":
-                space_cnt += 1
-                if space_cnt == 2:
-                    section_cnt += 1
-                    space_cnt = 0
-                    if section_cnt == 2:
-                        break
-            new_line += letter
-        # Remove all brackets, periods, and double spaces, as well as making the capitalization more user-friendly
-        new_line = new_line.title().replace(")", "").replace(".", "").replace("  ", " ")
-        return new_line
 
     def format_realty_line(self, line: str, single_line: bool = False):
         line = line.title().strip()
@@ -173,45 +107,6 @@ class HeritagePropertyFinder:
                     listing_time = lines[cur_line + 31]
                     sqft = self.get_sq_ft(new_line)
                     return f"{new_line}\n", price.removesuffix("\n").strip(), listing_time.removesuffix("\n").strip(), sqft
-
-    # Update the .json and .txt data from the PDF
-    def update_heritage_data(self) -> str:
-        # Update the PDF
-        self.update_pdf()
-        reader = PdfReader(f"{self.path}/buildings.pdf")
-        text = ""
-        # For each page in the PDF
-        for page in reader.pages:
-            # Read the text from the page, then split them into lines
-            page_text = page.extract_text().split("\n")
-            # For each line in the page's text
-            for line in page_text:
-                # Remove all unnecessary spaces
-                line = line.lstrip(" ")
-                # Only consider the line if it's not in the bad lines
-                if line not in self.bad_lines:
-                    try:
-                        # Check if the line starts with a number
-                        int(line[0])
-                        # Format the line
-                        new_line = self.format_heritage_line(line)
-                            
-                        # If the new line is not empty
-                        if len(new_line) > 1:
-                            # Check if the line has a dash in it, if it does, get all addresses within the dashes
-                            if "-" in new_line:
-                                text += self.handle_dash(new_line)
-                            # Otherwise, just add the line to the final text
-                            else:
-                                text += f"{new_line}\n"
-                    # If the line doesn't start with a number, skip it
-                    except ValueError:
-                        pass
-        # Remove the final empty line
-        text = text.rstrip("\n")
-        # Save the text
-        self.save_text(text)
-        return text
                     
     def format_realty_data(self) -> dict:
         realty_addresses_dict = {}
@@ -256,11 +151,9 @@ class HeritagePropertyFinder:
         with open("data/realty_listings.txt", "w", encoding="utf-8") as f:
             f.writelines(realty_addresses_dict.keys())
             
-        
-
         return realty_addresses_dict
     
-    def get_heritage_listings(self) -> None:
+    def get_r1_listings(self) -> None:
         heritage_addresses = []
         with open(f"{self.path}/buildings.txt") as f:
             heritage_addresses = f.readlines()
@@ -396,7 +289,6 @@ class HeritagePropertyFinder:
         wb.remove(wb["Proforma Template"])
         wb.save(wb_title)
 
-        
     #Convert the Vancouver parcel JSON into something more usable            
     def convert_parcel_json(self):
         try:
