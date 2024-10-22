@@ -292,7 +292,7 @@ class R1_Finder:
     #Convert the Vancouver parcel JSON into something more usable            
     def convert_parcel_json(self):
         try:
-            with open("data/property-parcel-polygons.json") as f:
+            with open("property-parcel-polygons.json") as f:
                 new_dict = {}
                 street_conversions = {
                     "St": "Street",
@@ -313,3 +313,13 @@ class R1_Finder:
                 json.dump(new_dict, open("data/parcels.json", 'w'))
         except FileNotFoundError:
             return
+        
+    def convert_zoning_json(self):
+        with open("zoning-districts-and-labels.json") as f:
+            data = json.load(f)
+            zoning_data = []
+            for dictionary in data:
+                if dictionary["zoning_district"] == "R1-1":
+                    zoning_data.append(dictionary["geom"]["geometry"])
+            json.dump(zoning_data, open("zoning.json", "w"))
+        
