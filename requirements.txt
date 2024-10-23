@@ -3,3 +3,8 @@ lxml
 pypdf
 selenium
 openpyxl
+geopy
+geojson
+turfpy
+area
+xlwings

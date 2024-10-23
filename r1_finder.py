@@ -6,7 +6,7 @@ from openpyxl import styles
 from area import area
 from turfpy.measurement import boolean_point_in_polygon
 from geojson import Point, Polygon, Feature
-
+from geopy.geocoders import Nominatim
 # The class to find all heritage properties listed on popular realty websites
 class R1_Finder:
     def __init__(self,
@@ -26,11 +26,9 @@ class R1_Finder:
             self.dictionary = json.load(open(f"{path}/heritage_properties.json"))
         except FileNotFoundError:
             pass
-        try:
-            self.parcels = json.load(open("parcels.json"))
-        except FileNotFoundError:
-            self.convert_parcel_json()
-            self.parcels = json.load(open("parcels.json"))
+        
+        self.parcels = json.load(open("parcels.json"))
+        
         
         firefox_profile = webdriver.FirefoxProfile()
         firefox_profile.set_preference("javascript.enabled", True)
@@ -38,6 +36,16 @@ class R1_Finder:
         options = webdriver.FirefoxOptions()
         options.profile = firefox_profile
         self.driver = webdriver.Firefox(options=options)
+        self.geolocator = Nominatim(user_agent="Your_Name")
+        zoning = json.load(open("zoning.json"))
+        self.zones = []
+        for zone in zoning:
+            polygon_list = [[]]
+            for point in zone["coordinates"][0]:
+                point.reverse()
+                polygon_list[0].append(tuple(point))
+            polygon = Polygon(polygon_list)
+            self.zones.append(polygon)
         #self.vancouver_api_key = "f6aba1995ad5dcbd2f37c943d36001f1fcfa7441c6243868fa1a0792"
         #self.rentcast_key = "533d316d4fc54e3aac177815ae86d2f6"
             
@@ -49,6 +57,27 @@ class R1_Finder:
             return 0
         polygon = address_data["geom"]["geometry"]
         return round(area(polygon) * 10.764, 2)
+
+    def is_r1_property(self, address: str) -> bool:
+        coords = []
+        try:
+            raw_coords = self.parcels[address]["geo_point_2d"]
+            print(raw_coords)
+            coords = (float(raw_coords["lat"]), float(raw_coords["lon"]))
+        except KeyError:
+            location = self.geolocator.geocode(f"{address.strip()}, Vancouver", country_codes="CA", timeout=300, namedetails=True)
+            if location == None:
+                return False
+            coords = (float(location.raw['lat']), float(location.raw['lon']))
+        print(coords)
+        point = Feature(geometry=Point(coords))
+        
+        
+        for polygon in self.zones:
+            if boolean_point_in_polygon(point, polygon):
+                return True
+        
+        return False
 
     def format_realty_line(self, line: str, single_line: bool = False):
         line = line.title().strip()
@@ -154,23 +183,19 @@ class R1_Finder:
         return realty_addresses_dict
     
     def get_r1_listings(self) -> None:
-        heritage_addresses = []
-        with open(f"{self.path}/buildings.txt") as f:
-            heritage_addresses = f.readlines()
-        self.dictionary = {}
         realty_addresses_dict = self.format_realty_data()
-        for heritage_address in heritage_addresses:
-            heritage_address_splt = heritage_address.split()
-            for realty_address in realty_addresses_dict.keys():
-                realty_address_splt = realty_address.split()
-                if len(realty_address_splt) > 0 and heritage_address_splt == realty_address_splt[:-1] and realty_address not in self.dictionary:
-                    self.dictionary[realty_address] = realty_addresses_dict[realty_address]
+        r1_addresses = []
+        for address in realty_addresses_dict.keys():
+            if self.is_r1_property(address.rstrip(" \n")):
+                r1_addresses.append(realty_addresses_dict[address])
+        self.dictionary = {}
+        
         new_dict = {}
         for key, value in self.dictionary.items():
             if key not in new_dict.keys():
                 new_dict[key.removesuffix(" \n").strip()] = value
         self.dictionary = new_dict
-        with open(f"{self.path}/heritage_properties.json", "w") as f:
+        with open(f"{self.path}/r1_1_properties.json", "w") as f:
             json.dump(self.dictionary, f, indent=4)
             
     def generate_spreadsheet(self) -> None:
