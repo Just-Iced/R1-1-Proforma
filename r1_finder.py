@@ -62,7 +62,6 @@ class R1_Finder:
         coords = []
         try:
             raw_coords = self.parcels[address]["geo_point_2d"]
-            print(raw_coords)
             coords = (float(raw_coords["lat"]), float(raw_coords["lon"]))
         except KeyError:
             location = self.geolocator.geocode(f"{address.strip()}, Vancouver", country_codes="CA", timeout=300, namedetails=True)
@@ -70,11 +69,11 @@ class R1_Finder:
                 return False
             coords = (float(location.raw['lat']), float(location.raw['lon']))
         print(coords)
-        point = Feature(geometry=Point(coords))
-        
+        point = Feature(geometry=Point(coords, precision=14))
         
         for polygon in self.zones:
             if boolean_point_in_polygon(point, polygon):
+                print(address)
                 return True
         
         return False
@@ -184,11 +183,11 @@ class R1_Finder:
     
     def get_r1_listings(self) -> None:
         realty_addresses_dict = self.format_realty_data()
-        r1_addresses = []
+        self.dictionary = {}
         for address in realty_addresses_dict.keys():
             if self.is_r1_property(address.rstrip(" \n")):
-                r1_addresses.append(realty_addresses_dict[address])
-        self.dictionary = {}
+                self.dictionary[address] = realty_addresses_dict[address]
+        
         
         new_dict = {}
         for key, value in self.dictionary.items():
@@ -197,62 +196,11 @@ class R1_Finder:
         self.dictionary = new_dict
         with open(f"{self.path}/r1_1_properties.json", "w") as f:
             json.dump(self.dictionary, f, indent=4)
-            
-    def generate_spreadsheet(self) -> None:
-        # Create the workbook
-        wb = openpyxl.Workbook().file 
-
-        # Get the active sheet and change its title
-        sheet = wb.active
-        sheet.title = "Heritage Property Profitability"
-
-        sheet.cell(1, 1).value = "Address:"
-        sheet.cell(1, 2).value = "Total Price:"
-        sheet.cell(1, 3).value = "Size (ft²):"
-        sheet.cell(1, 4).value = "Price per square foot:"
-        sheet.column_dimensions['A'].width = 22
-        sheet.column_dimensions['B'].width = 15
-        sheet.column_dimensions['C'].width = 12
-        sheet.column_dimensions['D'].width = 22
-        
-
-        list_num = 2
-        for listing in self.dictionary:
-            colour = None
-            add_cell = sheet.cell(list_num, 1)
-            add_cell.value = listing
-            price_cell = sheet.cell(list_num, 2)
-            sqft_cell = sheet.cell(list_num, 3)
-            price_sqft_cell = sheet.cell(list_num, 4)
-            sqft = self.dictionary[listing]["Sqft"]
-            if sqft <= 0:
-                price_sqft_cell.value = "Not Found"
-                colour = styles.colors.Color(rgb='1F0000')
-            else:
-                price_sqft_cell.number_format = '[$$-409]#,##0.00;[RED]-[$$-409]#,##0.00'
-                price_cell.number_format = '[$$-409]#,##0.00;[RED]-[$$-409]#,##0.00'
-                price = float(self.dictionary[listing]['Price'].replace("$","").replace(",","").strip()) 
-                sqft_cell.value = sqft
-                price_cell.value = price
-                price_sqft = round(price / sqft, 5)
-                price_sqft_cell.value = price_sqft
-                
-                if self.is_profitable(price_sqft):
-                    colour = styles.colors.Color(rgb='11FF00')
-                else:
-                    colour = styles.colors.Color(rgb='00FF0000')
-                fill = styles.fills.PatternFill(patternType='solid', fgColor=colour)
-                add_cell.fill = fill
-                sqft_cell.fill = fill
-                price_cell.fill = fill
-                price_sqft_cell.fill = fill
-                list_num += 1
-
-        wb.save(f"{self.path}/Profitability.xlsx")
         
     def generate_proforma(self):
         from time import gmtime, strftime
         from openpyxl.worksheet.hyperlink import Hyperlink
+        import os
         cur_day = strftime("%Y-%m-%d", gmtime())
         wb_title = f"Proforma {cur_day}.xlsx"
         wb = openpyxl.load_workbook("Proforma Template.xlsx")
@@ -281,19 +229,20 @@ class R1_Finder:
             
             
             master_row += 1
-        wb.save(wb_title)
+        wb.save("data_only.xlsx")
         wb.close()
         import xlwings 
         excel_app = xlwings.App(visible=False)
-        excel_book = excel_app.books.open(wb_title)
+        excel_book = excel_app.books.open("data_only.xlsx")
         excel_book.save()
         excel_app.kill()
         
-        wb = openpyxl.load_workbook(wb_title, data_only=True)
+        wb = openpyxl.load_workbook("data_only.xlsx", data_only=True)
         for key in self.dictionary:
             sheet = wb[key]
             self.dictionary[key]["Profit"] = float(sheet.cell(94,7).internal_value)
         wb.close()
+        os.remove("data_only.xlsx") 
         wb = openpyxl.load_workbook(wb_title)
         master_row = 5
         master_list = wb["Master List"]
