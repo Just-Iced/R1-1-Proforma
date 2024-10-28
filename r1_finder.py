@@ -5,7 +5,7 @@ from selenium import webdriver
 from openpyxl import styles
 from area import area
 from turfpy.measurement import boolean_point_in_polygon
-from geojson import Point, Polygon, Feature
+from geojson import Point, MultiPolygon, Feature
 from geopy.geocoders import Nominatim
 # The class to find all heritage properties listed on popular realty websites
 class R1_Finder:
@@ -38,16 +38,19 @@ class R1_Finder:
         self.driver = webdriver.Firefox(options=options)
         self.geolocator = Nominatim(user_agent="Your_Name")
         zoning = json.load(open("zoning.json"))
-        self.zones = []
+        zones = []
         for zone in zoning:
-            polygon_list = [[]]
-            for point in zone["coordinates"][0]:
+            polygon_list = []
+            for point in zone["coordinates"]:
                 point.reverse()
-                polygon_list[0].append(tuple(point))
-            polygon = Polygon(polygon_list)
-            self.zones.append(polygon)
+                polygon_list.append(tuple(point))
+            zones.append((polygon_list,))
+        self.zones: Feature = Feature(geometry=MultiPolygon(zones, validate=True, precision=14))
+            
+            
         #self.vancouver_api_key = "f6aba1995ad5dcbd2f37c943d36001f1fcfa7441c6243868fa1a0792"
         #self.rentcast_key = "533d316d4fc54e3aac177815ae86d2f6"
+        #MultiPolygon([([(-81, 41), (-81, 47), (-72, 47),(-72, 41), (-81, 41)],),([(3.78, 9.28), (-130.91, 1.52), (35.12, 72.234), (3.78, 9.28)],)])
             
     def get_sq_ft(self, address: str) -> float:
         address_data = {}
@@ -68,13 +71,11 @@ class R1_Finder:
             if location == None:
                 return False
             coords = (float(location.raw['lat']), float(location.raw['lon']))
-        print(coords)
         point = Feature(geometry=Point(coords, precision=14))
-        
-        for polygon in self.zones:
-            if boolean_point_in_polygon(point, polygon):
-                print(address)
-                return True
+
+        if boolean_point_in_polygon(point, self.zones):
+            print(address)
+            return True
         
         return False
 
@@ -145,13 +146,14 @@ class R1_Finder:
                     formatted_line = self.format_realty_line(line)
                     if type(formatted_line) == list:
                         for address, price, list_time, sqft in formatted_line:
-                            address = address.removesuffix("\n")
+                            address = address.removesuffix("\n").strip()
                             realty_addresses_dict[address] = {"Price": price, "Listing Time": list_time, "Sqft": float(sqft)}
                     else:
-                        realty_addresses_dict[formatted_line[0]] = {"Price": formatted_line[1], "Listing Time": formatted_line[2], "Sqft": float(formatted_line[3])}
+                        realty_addresses_dict[formatted_line[0].strip()] = {"Price": formatted_line[1], "Listing Time": formatted_line[2], "Sqft": float(formatted_line[3])}
         return realty_addresses_dict
                     
     def update_realty_data(self) -> dict:
+        """
         def _goto_page(pg_num: int) -> None:
             url = f"https://www.realtor.ca/map#ZoomLevel=15&Center=49.2827%2C-123.1207&LatitudeMax=49.25428&LongitudeMax=-123.14113&LatitudeMin=49.19609&LongitudeMin=-123.22857&CurrentPage={pg_num}&Sort=6-D&PropertyTypeGroupID=1&TransactionTypeId=2&PropertySearchTypeId=0&Currency=CAD&HiddenListingIds=&IncludeHiddenListings=false"
             self.driver.get(url)
@@ -173,11 +175,14 @@ class R1_Finder:
         
         with open(f"{self.path}/realty_listings_unformatted.txt", "w", encoding="utf-8") as f:
             f.write(txt)
-        
+        """
         realty_addresses_dict = self.format_realty_data()
-                    
+        keys = realty_addresses_dict.keys()
+        listings = ""
+        for key in keys:
+            listings += f"{key.strip()}\n"
         with open("data/realty_listings.txt", "w", encoding="utf-8") as f:
-            f.writelines(realty_addresses_dict.keys())
+            f.write(listings)
             
         return realty_addresses_dict
     
@@ -230,6 +235,7 @@ class R1_Finder:
             
             master_row += 1
         wb.save("data_only.xlsx")
+        wb.save(wb_title)
         wb.close()
         import xlwings 
         excel_app = xlwings.App(visible=False)
@@ -260,7 +266,10 @@ class R1_Finder:
             master_row += 1
         master_list.cell(4,2).font = format
         master_list.cell(4,3).font = format
-        wb.remove(wb["Proforma Template"])
+        try:
+            wb.remove(wb["Proforma Template"])
+        except KeyError:
+            pass
         wb.save(wb_title)
 
     #Convert the Vancouver parcel JSON into something more usable            
@@ -294,6 +303,7 @@ class R1_Finder:
             zoning_data = []
             for dictionary in data:
                 if dictionary["zoning_district"] == "R1-1":
+                    dictionary["geom"]["geometry"]["coordinates"] = dictionary["geom"]["geometry"]["coordinates"][0]
                     zoning_data.append(dictionary["geom"]["geometry"])
             json.dump(zoning_data, open("zoning.json", "w"))
         
