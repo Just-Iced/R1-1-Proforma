@@ -12,20 +12,17 @@ from geopy.geocoders import Nominatim
 # The class to find all heritage properties listed on popular realty websites
 class R1_Finder:
     def __init__(self,
-                    # The URL to retrieve the PDF from 
-                    url: str = "https://guidelines.vancouver.ca/policy-vancouver-heritage-register.pdf",
                     # Where to store the data files
                     path: str = "data",
                     # Lines to ignore when reading the pdf
                     bad_lines: list[str] = ["8 HERITAGE BUILDINGS   ", "14 ARCHAEOLOGICAL SITES  ", ""]) -> None:
         
-        self.url = url
         self.path = path
         self.bad_lines = bad_lines
         self.dictionary = {}
         self.parcels = {}
         try:
-            self.dictionary = json.load(open(f"{path}/heritage_properties.json"))
+            self.dictionary = json.load(open(f"{path}/r1_1_properties.json"))
         except FileNotFoundError:
             pass
         
