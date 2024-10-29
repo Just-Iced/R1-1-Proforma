@@ -13,12 +13,9 @@ from geopy.geocoders import Nominatim
 class R1_Finder:
     def __init__(self,
                     # Where to store the data files
-                    path: str = "data",
-                    # Lines to ignore when reading the pdf
-                    bad_lines: list[str] = ["8 HERITAGE BUILDINGS   ", "14 ARCHAEOLOGICAL SITES  ", ""]) -> None:
+                    path: str = "data") -> None:
         
         self.path = path
-        self.bad_lines = bad_lines
         self.dictionary = {}
         self.parcels = {}
         try:
