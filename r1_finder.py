@@ -1,11 +1,13 @@
 import openpyxl.workbook
 import json, openpyxl, time
-from bs4 import BeautifulSoup
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from openpyxl import styles
 from area import area
 from turfpy.measurement import boolean_point_in_polygon
-from geojson import Point, MultiPolygon, Feature
+from geojson import Point, Polygon, Feature
 from geopy.geocoders import Nominatim
 # The class to find all heritage properties listed on popular realty websites
 class R1_Finder:
@@ -36,17 +38,21 @@ class R1_Finder:
         options = webdriver.FirefoxOptions()
         options.profile = firefox_profile
         self.driver = webdriver.Firefox(options=options)
-        self.geolocator = Nominatim(user_agent="Your_Name")
-        zoning = json.load(open("zoning.json"))
-        zones = []
-        for zone in zoning:
-            polygon_list = []
-            for point in zone["coordinates"]:
-                point.reverse()
-                polygon_list.append(tuple(point))
-            zones.append((polygon_list,))
-        self.zones: Feature = Feature(geometry=MultiPolygon(zones, validate=True, precision=14))
-            
+        self.geolocator = Nominatim(user_agent="GeoLocator")
+        self.r1_zones = []
+        self.other_zones = []
+        with open("zoning-districts-and-labels.json") as f:
+            data = json.load(f)
+            for dictionary in data:
+                polygon_list = [[]]
+                for point in dictionary["geom"]["geometry"]["coordinates"][0]:
+                    point.reverse()
+                    polygon_list[0].append(tuple(point))
+                polygon = Polygon(polygon_list, precision=14)
+                if dictionary["zoning_district"] == "R1-1":
+                    self.r1_zones.append(polygon)
+                else:
+                    self.other_zones.append(polygon)          
             
         #self.vancouver_api_key = "f6aba1995ad5dcbd2f37c943d36001f1fcfa7441c6243868fa1a0792"
         #self.rentcast_key = "533d316d4fc54e3aac177815ae86d2f6"
@@ -72,111 +78,63 @@ class R1_Finder:
                 return False
             coords = (float(location.raw['lat']), float(location.raw['lon']))
         point = Feature(geometry=Point(coords, precision=14))
-
-        if boolean_point_in_polygon(point, self.zones):
-            print(address)
-            return True
+        for r1_zone in self.r1_zones:
+            if boolean_point_in_polygon(point, r1_zone):
+                for other_zone in self.other_zones:
+                    if boolean_point_in_polygon(point, other_zone):
+                        return False
+                print(address)
+                return True
         
         return False
-
-    def format_realty_line(self, line: str, single_line: bool = False):
-        line = line.title().strip()
-        
-        if "$" in line and not single_line:
-            addresses = line.split("$")
-            new_addresses = []
-            for address in addresses[1:]:
-                new_address = address.split("False")[1].split(", Vancouver")[0]
-                new_line = self.format_realty_line(new_address, True)
-                sqft = 0
-                try:
-                    sqft = self.get_sq_ft(new_line)
-                except IndexError:
-                    pass
-                new_addresses.append((new_line, f"${address.split('False')[0].strip()}", "", sqft))
-            return new_addresses
-                
-        else:
-            line = line.removesuffix(", Vancouver, British Columbia")
-            
-            num_cnt = 0
-            line_splt = line.split()
-            first_word = True
-            
-            new_line = ""
-            for word in line_splt:
-                bad_word = False
-                try:
-                    int(word)
-                    num_cnt += 1
-                except ValueError:
-                    if first_word:
-                        bad_word = True
-                first_word = False
-                if not bad_word:
-                    new_line += f"{word} "
-
-            if num_cnt > 1:
-                new_line = ""
-                for word in line_splt[1:]:
-                    new_line += f"{word} "
-            if single_line:
-                return f"{new_line}\n"
-            else:
-                with open(f"{self.path}/realty_listings_unformatted.txt", encoding="utf-8") as f:
-                    cur_line = 0
-                    lines = f.readlines()
-                    for line in lines:
-                        line = line.removesuffix("\n")
-                        if new_line.lower().strip() in line.lower().strip():
-                            break
-                        cur_line += 1
-                    
-                    price = lines[cur_line - 2]
-                    listing_time = lines[cur_line + 31]
-                    sqft = self.get_sq_ft(new_line)
-                    return f"{new_line}\n", price.removesuffix("\n").strip(), listing_time.removesuffix("\n").strip(), sqft
-                    
-    def format_realty_data(self) -> dict:
-        realty_addresses_dict = {}
-        with open(f"{self.path}/realty_listings_unformatted.txt", encoding="utf-8") as r:
-            lines = r.readlines()
-            for line in lines:
-                if "vancouver" in line.lower():
-                    formatted_line = self.format_realty_line(line)
-                    if type(formatted_line) == list:
-                        for address, price, list_time, sqft in formatted_line:
-                            address = address.removesuffix("\n").strip()
-                            realty_addresses_dict[address] = {"Price": price, "Listing Time": list_time, "Sqft": float(sqft)}
-                    else:
-                        realty_addresses_dict[formatted_line[0].strip()] = {"Price": formatted_line[1], "Listing Time": formatted_line[2], "Sqft": float(formatted_line[3])}
-        return realty_addresses_dict
                     
     def update_realty_data(self) -> dict:
-        """
         def _goto_page(pg_num: int) -> None:
-            url = f"https://www.realtor.ca/map#ZoomLevel=15&Center=49.2827%2C-123.1207&LatitudeMax=49.25428&LongitudeMax=-123.14113&LatitudeMin=49.19609&LongitudeMin=-123.22857&CurrentPage={pg_num}&Sort=6-D&PropertyTypeGroupID=1&TransactionTypeId=2&PropertySearchTypeId=0&Currency=CAD&HiddenListingIds=&IncludeHiddenListings=false"
+            url = f"https://www.realtor.ca/map#ZoomLevel=15&Center=49.2827%2C-123.1207&LatitudeMax=49.25428&LongitudeMax=-123.14113&LatitudeMin=49.19609&LongitudeMin=-123.22857&view=list&CurrentPage={pg_num}&Sort=6-D&PropertyTypeGroupID=1&TransactionTypeId=2&PropertySearchTypeId=0&Currency=CAD&HiddenListingIds=&IncludeHiddenListings=false"
             self.driver.get(url)
             self.driver.refresh()
-        txt = ""
-
+            
+        def _read_page() -> list[tuple]:
+            addresses = []
+            elements = self.driver.find_elements(By.CLASS_NAME, "listingCardTopBody")
+            for element in elements:
+                priceElement = element.find_element(By.CLASS_NAME, "listingCardPrice")
+                price = priceElement.get_attribute("title")
+                addressElement = element.find_element(By.CLASS_NAME, "listingCardAddress")
+                address = addressElement.text
+                address = address.split(",")[0].title()
+                address_split = address.split()
+                numbers = 0
+                for word in address_split:
+                    try:
+                        int(word)
+                        numbers += 1
+                    except ValueError:
+                        break
+                if numbers >= 2:
+                    address = ""
+                    address_split = address_split[1:]
+                    for word in address_split:
+                        address += f"{word} "
+                try:
+                    addresses.append((address.strip(), int(price.replace("$","").replace(",",""))))
+                except ValueError:
+                    pass
+            return addresses
+        realty_addresses_dict = {}
         _goto_page(1)
-        time.sleep(20)
-        soup = BeautifulSoup(self.driver.page_source, 'lxml')
-        txt += f"{soup.get_text()}\n"
+        WebDriverWait(self.driver, 10000000).until(EC.presence_of_element_located((By.CLASS_NAME, "listingCardTopBody")))
+        for item in _read_page():
+            realty_addresses_dict[item[0]] = {"Price": item[1], "Sqft": self.get_sq_ft(item[0])}
         time.sleep(3)
-        for i in range(2, 51):
+        for i in range(2, 8):
             print(f"Page {i}")
             _goto_page(i)
-            time.sleep(3)
-            soup = BeautifulSoup(self.driver.page_source, 'lxml')
-            txt += f"{soup.get_text()}\n"
-            time.sleep(3)
+            time.sleep(2)
+            for item in _read_page():
+                realty_addresses_dict[item[0]] = {"Price": item[1], "Sqft": self.get_sq_ft(item[0])}
+            time.sleep(2)
         
-        with open(f"{self.path}/realty_listings_unformatted.txt", "w", encoding="utf-8") as f:
-            f.write(txt)
-        """
-        realty_addresses_dict = self.format_realty_data()
         keys = realty_addresses_dict.keys()
         listings = ""
         for key in keys:
@@ -187,7 +145,7 @@ class R1_Finder:
         return realty_addresses_dict
     
     def get_r1_listings(self) -> None:
-        realty_addresses_dict = self.format_realty_data()
+        realty_addresses_dict = self.update_realty_data()
         self.dictionary = {}
         for address in realty_addresses_dict.keys():
             if self.is_r1_property(address.rstrip(" \n")):
@@ -221,7 +179,7 @@ class R1_Finder:
             sheet.title = key
             sheet.cell(1,2).value = key
             sheet.cell(7,4).value = data["Sqft"]
-            price = float(data['Price'].replace("$","").replace(",","").strip())
+            price = data['Price']
             sheet.cell(45,6).value = price
             
             
@@ -297,13 +255,4 @@ class R1_Finder:
         except FileNotFoundError:
             return
         
-    def convert_zoning_json(self):
-        with open("zoning-districts-and-labels.json") as f:
-            data = json.load(f)
-            zoning_data = []
-            for dictionary in data:
-                if dictionary["zoning_district"] == "R1-1":
-                    dictionary["geom"]["geometry"]["coordinates"] = dictionary["geom"]["geometry"]["coordinates"][0]
-                    zoning_data.append(dictionary["geom"]["geometry"])
-            json.dump(zoning_data, open("zoning.json", "w"))
         

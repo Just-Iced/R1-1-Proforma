@@ -1,1 +1,226 @@
-{}
+{
+    "3841 W 27Th Avenue": {
+        "Price": 2598000,
+        "Sqft": 4282.67
+    },
+    "3987 W King Edward Avenue": {
+        "Price": 3498000,
+        "Sqft": 5003.44
+    },
+    "2403 W 37Th Avenue": {
+        "Price": 2875000,
+        "Sqft": 8251.13
+    },
+    "3587 Mayfair Avenue": {
+        "Price": 5298000,
+        "Sqft": 5452.83
+    },
+    "4878 Paton Street": {
+        "Price": 4199000,
+        "Sqft": 6977.44
+    },
+    "1667 W 40Th Avenue": {
+        "Price": 8280000,
+        "Sqft": 17476.01
+    },
+    "3470 W 43Rd Avenue": {
+        "Price": 4850000,
+        "Sqft": 12525.56
+    },
+    "3108 W 31St Avenue": {
+        "Price": 6375000,
+        "Sqft": 6482.43
+    },
+    "3439 W 26Th Avenue": {
+        "Price": 4180000,
+        "Sqft": 4309.97
+    },
+    "3868 W 23Rd Avenue": {
+        "Price": 3988000,
+        "Sqft": 2014.12
+    },
+    "2786 W 29Th Avenue": {
+        "Price": 4950000,
+        "Sqft": 6503.01
+    },
+    "6261 Adera Street": {
+        "Price": 5880000,
+        "Sqft": 9613.16
+    },
+    "1649 W 29Th Avenue": {
+        "Price": 6990000,
+        "Sqft": 11995.45
+    },
+    "4885 Valley Drive": {
+        "Price": 1198000,
+        "Sqft": 0
+    },
+    "2936 W 41St Avenue": {
+        "Price": 2440000,
+        "Sqft": 4449.09
+    },
+    "6519 Cypress Street": {
+        "Price": 3998000,
+        "Sqft": 6498.98
+    },
+    "3538 W 30Th Avenue": {
+        "Price": 5498000,
+        "Sqft": 6499.18
+    },
+    "5755 Angus Drive": {
+        "Price": 10880000,
+        "Sqft": 10430.45
+    },
+    "1628 Nanton Avenue": {
+        "Price": 5388000,
+        "Sqft": 9363.35
+    },
+    "2025 Sw Marine Drive": {
+        "Price": 5600000,
+        "Sqft": 17966.03
+    },
+    "1529 W 66Th Avenue": {
+        "Price": 3400000,
+        "Sqft": 4018.12
+    },
+    "1655 W 41St Avenue": {
+        "Price": 7980000,
+        "Sqft": 17067.45
+    },
+    "2180 W 48Th Avenue": {
+        "Price": 2820000,
+        "Sqft": 4313.21
+    },
+    "2817 Oliver Crescent": {
+        "Price": 4988000,
+        "Sqft": 7161.76
+    },
+    "3824 W 50Th Avenue": {
+        "Price": 2680000,
+        "Sqft": 0
+    },
+    "6210 Larch Street": {
+        "Price": 4199000,
+        "Sqft": 4142.54
+    },
+    "2 Tamath Crescent": {
+        "Price": 880000,
+        "Sqft": 12418.58
+    },
+    "3631 W 26Th Avenue": {
+        "Price": 3268000,
+        "Sqft": 6408.83
+    },
+    "3529 W 34Th Avenue": {
+        "Price": 4950000,
+        "Sqft": 6502.0
+    },
+    "5483 Carnarvon Street": {
+        "Price": 3798000,
+        "Sqft": 5818.37
+    },
+    "5212 Maple Street": {
+        "Price": 4528000,
+        "Sqft": 6002.69
+    },
+    "3945 W 31St Avenue": {
+        "Price": 3849000,
+        "Sqft": 6492.54
+    },
+    "5808 Crown Street": {
+        "Price": 6388000,
+        "Sqft": 12951.49
+    },
+    "3519 Mayfair Avenue": {
+        "Price": 2845000,
+        "Sqft": 5432.76
+    },
+    "6061 Adera Street": {
+        "Price": 5298000,
+        "Sqft": 9658.47
+    },
+    "5937 Holland Street": {
+        "Price": 2298000,
+        "Sqft": 4106.09
+    },
+    "1726 W 32Nd Avenue": {
+        "Price": 6990000,
+        "Sqft": 11300.89
+    },
+    "2091 W 59Th Avenue": {
+        "Price": 2550000,
+        "Sqft": 5504.64
+    },
+    "3075 W 36Th Avenue": {
+        "Price": 3880000,
+        "Sqft": 6504.57
+    },
+    "3349 W 37Th Avenue": {
+        "Price": 6580000,
+        "Sqft": 6470.55
+    },
+    "7112 Beechwood Street": {
+        "Price": 5980000,
+        "Sqft": 11511.39
+    },
+    "3596 W. 28Th Avenue": {
+        "Price": 1998000,
+        "Sqft": 0
+    },
+    "3847 W 24Th Avenue": {
+        "Price": 3900000,
+        "Sqft": 4028.3
+    },
+    "1691 W 41St Avenue": {
+        "Price": 7999800,
+        "Sqft": 17286.44
+    },
+    "3514 W 36Th Avenue": {
+        "Price": 3700000,
+        "Sqft": 9246.9
+    },
+    "6479 Larch Street": {
+        "Price": 4388000,
+        "Sqft": 5417.49
+    },
+    "1666 W 65Th Avenue": {
+        "Price": 2199000,
+        "Sqft": 3853.02
+    },
+    "3255 W King Edward W Avenue": {
+        "Price": 1880000,
+        "Sqft": 0
+    },
+    "1585 W 65Th Avenue": {
+        "Price": 2088000,
+        "Sqft": 3837.15
+    },
+    "3093 W 29Th Avenue": {
+        "Price": 3088888,
+        "Sqft": 4294.23
+    },
+    "4288 Musqueam Drive": {
+        "Price": 1738000,
+        "Sqft": 9414.24
+    },
+    "1833 W 35Th Avenue": {
+        "Price": 4980000,
+        "Sqft": 6563.97
+    },
+    "3830 W 23Rd Avenue": {
+        "Price": 2618000,
+        "Sqft": 4030.02
+    },
+    "3657 W 29Th Avenue": {
+        "Price": 5998888,
+        "Sqft": 7699.88
+    },
+    "2843 W 44Th Avenue": {
+        "Price": 5990000,
+        "Sqft": 7907.28
+    },
+    "4085 Puget Drive": {
+        "Price": 6288000,
+        "Sqft": 6815.18
+    }
+}
