@@ -9,6 +9,7 @@ from area import area
 from turfpy.measurement import boolean_point_in_polygon
 from geojson import Point, Polygon, Feature
 from geopy.geocoders import Nominatim
+from selenium.common.exceptions import TimeoutException
 # The class to find all heritage properties listed on popular realty websites
 class R1_Finder:
     def __init__(self,
@@ -29,9 +30,8 @@ class R1_Finder:
         firefox_profile = webdriver.FirefoxProfile()
         firefox_profile.set_preference("javascript.enabled", True)
         firefox_profile.set_preference("cookies.enabled", True)
-        options = webdriver.FirefoxOptions()
-        options.profile = firefox_profile
-        self.driver = webdriver.Firefox(options=options)
+        self.options = webdriver.FirefoxOptions()
+        self.options.profile = firefox_profile
         self.geolocator = Nominatim(user_agent="GeoLocator")
         self.r1_zones = []
         self.other_zones = []
@@ -46,7 +46,14 @@ class R1_Finder:
                 if dictionary["zoning_district"] == "R1-1":
                     self.r1_zones.append(polygon)
                 else:
-                    self.other_zones.append(polygon)          
+                    self.other_zones.append(polygon)
+        self.zones = {}
+        for area in json.load(open("local-area-boundary.json")):
+            polygon_list = [[]]
+            for point in area["geom"]["geometry"]["coordinates"][0]:
+                point.reverse()
+                polygon_list[0].append(tuple(point))
+            self.zones[area["name"]] = Polygon(polygon_list, precision=14)
             
         #self.vancouver_api_key = "f6aba1995ad5dcbd2f37c943d36001f1fcfa7441c6243868fa1a0792"
         #self.rentcast_key = "533d316d4fc54e3aac177815ae86d2f6"
@@ -61,7 +68,7 @@ class R1_Finder:
         polygon = address_data["geom"]["geometry"]
         return round(area(polygon) * 10.764, 2)
 
-    def is_r1_property(self, address: str) -> bool:
+    def get_lat_lon(self, address: str) -> tuple[float, float]:
         coords = []
         try:
             raw_coords = self.parcels[address]["geo_point_2d"]
@@ -69,28 +76,45 @@ class R1_Finder:
         except KeyError:
             location = self.geolocator.geocode(f"{address.strip()}, Vancouver", country_codes="CA", timeout=300, namedetails=True)
             if location == None:
-                return False
+                return None
             coords = (float(location.raw['lat']), float(location.raw['lon']))
+        return coords
+
+    def is_r1_property(self, address: str) -> bool:
+        coords = self.get_lat_lon(address)
         point = Feature(geometry=Point(coords, precision=14))
         for r1_zone in self.r1_zones:
-            if boolean_point_in_polygon(point, r1_zone):
-                for other_zone in self.other_zones:
-                    if boolean_point_in_polygon(point, other_zone):
-                        return False
-                print(address)
-                return True
-        
+            try:
+                if boolean_point_in_polygon(point, r1_zone):
+                    for other_zone in self.other_zones:
+                        if boolean_point_in_polygon(point, other_zone):
+                            return False
+                    print(address)
+                    return True
+            except IndexError:
+                return False
         return False
-                    
+    
+    def get_zone(self, address: str) -> str:
+        coords = self.get_lat_lon(address)
+        point = Feature(geometry=Point(coords, precision=14))
+        for zone in self.zones:
+            polygon = self.zones[zone]
+            if boolean_point_in_polygon(point, polygon):
+                return zone
+        return ""
+    
     def update_realty_data(self) -> dict:
+        driver = webdriver.Firefox(options=self.options)
         def _goto_page(pg_num: int) -> None:
             url = f"https://www.realtor.ca/map#ZoomLevel=15&Center=49.2827%2C-123.1207&LatitudeMax=49.25428&LongitudeMax=-123.14113&LatitudeMin=49.19609&LongitudeMin=-123.22857&view=list&CurrentPage={pg_num}&Sort=6-D&PropertyTypeGroupID=1&TransactionTypeId=2&PropertySearchTypeId=0&Currency=CAD&HiddenListingIds=&IncludeHiddenListings=false"
-            self.driver.get(url)
-            self.driver.refresh()
+            driver.get(url)
+            driver.refresh()
+            WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.CLASS_NAME, "listingCardTopBody")))
             
         def _read_page() -> list[tuple]:
             addresses = []
-            elements = self.driver.find_elements(By.CLASS_NAME, "listingCardTopBody")
+            elements = driver.find_elements(By.CLASS_NAME, "listingCardTopBody")
             for element in elements:
                 priceElement = element.find_element(By.CLASS_NAME, "listingCardPrice")
                 price = priceElement.get_attribute("title")
@@ -116,26 +140,24 @@ class R1_Finder:
                     pass
             return addresses
         realty_addresses_dict = {}
-        _goto_page(1)
-        WebDriverWait(self.driver, 10000000).until(EC.presence_of_element_located((By.CLASS_NAME, "listingCardTopBody")))
-        for item in _read_page():
-            realty_addresses_dict[item[0]] = {"Price": item[1], "Sqft": self.get_sq_ft(item[0])}
-        time.sleep(3)
-        for i in range(2, 8):
+        for i in range(1, 51):
             print(f"Page {i}")
-            _goto_page(i)
+            try:
+                _goto_page(i)
+            except TimeoutException:
+                break
             time.sleep(2)
             for item in _read_page():
                 realty_addresses_dict[item[0]] = {"Price": item[1], "Sqft": self.get_sq_ft(item[0])}
             time.sleep(2)
-        
+        driver.close()
         keys = realty_addresses_dict.keys()
         listings = ""
         for key in keys:
             listings += f"{key.strip()}\n"
         with open("data/realty_listings.txt", "w", encoding="utf-8") as f:
             f.write(listings)
-            
+        
         return realty_addresses_dict
     
     def get_r1_listings(self) -> None:
@@ -144,7 +166,6 @@ class R1_Finder:
         for address in realty_addresses_dict.keys():
             if self.is_r1_property(address.rstrip(" \n")):
                 self.dictionary[address] = realty_addresses_dict[address]
-        
         
         new_dict = {}
         for key, value in self.dictionary.items():
@@ -172,6 +193,7 @@ class R1_Finder:
             data = self.dictionary[key]
             sheet.title = key
             sheet.cell(1,2).value = key
+            sheet.cell(2,2).value = self.get_zone(key)
             sheet.cell(7,4).value = data["Sqft"]
             price = data['Price']
             sheet.cell(45,6).value = price

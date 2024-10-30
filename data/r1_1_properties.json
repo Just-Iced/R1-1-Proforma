@@ -71,38 +71,6 @@
         "Price": 10880000,
         "Sqft": 10430.45
     },
-    "1628 Nanton Avenue": {
-        "Price": 5388000,
-        "Sqft": 9363.35
-    },
-    "2025 Sw Marine Drive": {
-        "Price": 5600000,
-        "Sqft": 17966.03
-    },
-    "1529 W 66Th Avenue": {
-        "Price": 3400000,
-        "Sqft": 4018.12
-    },
-    "1655 W 41St Avenue": {
-        "Price": 7980000,
-        "Sqft": 17067.45
-    },
-    "2180 W 48Th Avenue": {
-        "Price": 2820000,
-        "Sqft": 4313.21
-    },
-    "2817 Oliver Crescent": {
-        "Price": 4988000,
-        "Sqft": 7161.76
-    },
-    "3824 W 50Th Avenue": {
-        "Price": 2680000,
-        "Sqft": 0
-    },
-    "6210 Larch Street": {
-        "Price": 4199000,
-        "Sqft": 4142.54
-    },
     "2 Tamath Crescent": {
         "Price": 880000,
         "Sqft": 12418.58
@@ -140,7 +108,7 @@
         "Sqft": 9658.47
     },
     "5937 Holland Street": {
-        "Price": 2298000,
+        "Price": 2398000,
         "Sqft": 4106.09
     },
     "1726 W 32Nd Avenue": {
@@ -222,5 +190,1029 @@
     "4085 Puget Drive": {
         "Price": 6288000,
         "Sqft": 6815.18
+    },
+    "3981 W 35Th Avenue": {
+        "Price": 9898000,
+        "Sqft": 8543.21
+    },
+    "3449 W 22Nd Avenue": {
+        "Price": 2688000,
+        "Sqft": 4033.62
+    },
+    "2642 W 45Th Avenue": {
+        "Price": 2990000,
+        "Sqft": 5835.46
+    },
+    "1766 W 68Th Avenue": {
+        "Price": 2900000,
+        "Sqft": 6947.8
+    },
+    "6729 Wiltshire Street": {
+        "Price": 4248000,
+        "Sqft": 2637.0
+    },
+    "3439 W 27Th Avenue": {
+        "Price": 4699000,
+        "Sqft": 4284.19
+    },
+    "3706 W King Edward Avenue": {
+        "Price": 4288000,
+        "Sqft": 6623.69
+    },
+    "6026 Angus Drive": {
+        "Price": 5880000,
+        "Sqft": 9703.21
+    },
+    "1658 W 28Th Avenue": {
+        "Price": 6480000,
+        "Sqft": 11995.64
+    },
+    "4254 Staulo Crescent": {
+        "Price": 1988000,
+        "Sqft": 11294.46
+    },
+    "4426 Arbutus Street": {
+        "Price": 4300000,
+        "Sqft": 7085.24
+    },
+    "3758 W 35Th Avenue": {
+        "Price": 4080000,
+        "Sqft": 6516.54
+    },
+    "2971 W 31St Avenue": {
+        "Price": 5990000,
+        "Sqft": 6512.83
+    },
+    "2050 W 57Th Avenue": {
+        "Price": 2738000,
+        "Sqft": 5628.99
+    },
+    "4637 Angus Drive": {
+        "Price": 6260000,
+        "Sqft": 11192.5
+    },
+    "3593 W 29Th Avenue": {
+        "Price": 1788888,
+        "Sqft": 0
+    },
+    "6530 Angus Drive": {
+        "Price": 2698000,
+        "Sqft": 4558.86
+    },
+    "6051 Collingwood Place": {
+        "Price": 6880000,
+        "Sqft": 11310.03
+    },
+    "6059 Collingwood Place": {
+        "Price": 6880000,
+        "Sqft": 10838.11
+    },
+    "6576 Yew Street": {
+        "Price": 2488000,
+        "Sqft": 4995.33
+    },
+    "4930 Dunbar Street": {
+        "Price": 2099000,
+        "Sqft": 3420.36
+    },
+    "1957 Aspen Avenue": {
+        "Price": 4168000,
+        "Sqft": 7872.42
+    },
+    "6675 Laburnum Street": {
+        "Price": 4690000,
+        "Sqft": 6497.22
+    },
+    "2671 Mcbain Avenue": {
+        "Price": 5580000,
+        "Sqft": 6257.94
+    },
+    "3306 Mayfair Avenue": {
+        "Price": 2298000,
+        "Sqft": 6362.0
+    },
+    "3304 Mayfair Avenue": {
+        "Price": 2298000,
+        "Sqft": 0
+    },
+    "5503 Blenheim Street": {
+        "Price": 2598000,
+        "Sqft": 0
+    },
+    "2188 W 21St Avenue": {
+        "Price": 5280000,
+        "Sqft": 7121.29
+    },
+    "2683 W 21St Avenue": {
+        "Price": 4500000,
+        "Sqft": 6460.71
+    },
+    "6524 Angus Drive": {
+        "Price": 2498000,
+        "Sqft": 0
+    },
+    "2115 W 34Th Avenue": {
+        "Price": 4180000,
+        "Sqft": 8583.52
+    },
+    "2728 Oliver Crescent": {
+        "Price": 3898000,
+        "Sqft": 6515.49
+    },
+    "1950 W 36Th Avenue": {
+        "Price": 4248000,
+        "Sqft": 6002.51
+    },
+    "2975 W 22Nd Avenue": {
+        "Price": 2988000,
+        "Sqft": 5117.9
+    },
+    "2984 W 31St Avenue": {
+        "Price": 4299800,
+        "Sqft": 4273.2
+    },
+    "1591 Nanton Avenue": {
+        "Price": 5990000,
+        "Sqft": 8964.51
+    },
+    "Ph4 2089 W 43Rd Avenue": {
+        "Price": 3249000,
+        "Sqft": 0
+    },
+    "2133 W 49Th Avenue": {
+        "Price": 2888000,
+        "Sqft": 4285.69
+    },
+    "3688 W 49Th Avenue": {
+        "Price": 3488000,
+        "Sqft": 8965.95
+    },
+    "5611 Elm Street": {
+        "Price": 4598000,
+        "Sqft": 8095.83
+    },
+    "3688 W King Edward Avenue": {
+        "Price": 4288000,
+        "Sqft": 6622.53
+    },
+    "2937 W 45Th Avenue": {
+        "Price": 6980000,
+        "Sqft": 8016.88
+    },
+    "3169 W 45Th Avenue": {
+        "Price": 3398000,
+        "Sqft": 6788.59
+    },
+    "2903 W 21St Avenue": {
+        "Price": 2680000,
+        "Sqft": 4018.61
+    },
+    "6968 Churchill Street": {
+        "Price": 6968000,
+        "Sqft": 11439.26
+    },
+    "3070 W 44Th Avenue": {
+        "Price": 6480000,
+        "Sqft": 5930.23
+    },
+    "1706 W 68Th Avenue": {
+        "Price": 3550000,
+        "Sqft": 8347.08
+    },
+    "3522 W 42Nd Avenue": {
+        "Price": 3699000,
+        "Sqft": 5879.02
+    },
+    "3838 W 50Th Avenue": {
+        "Price": 5135555,
+        "Sqft": 9753.21
+    },
+    "2870 Sw Marine Drive": {
+        "Price": 16900000,
+        "Sqft": 99173.25
+    },
+    "3530 W 34Th Avenue": {
+        "Price": 6688000,
+        "Sqft": 6492.01
+    },
+    "3357 W 26Th Avenue": {
+        "Price": 3788800,
+        "Sqft": 7702.5
+    },
+    "7216 Beechwood Street": {
+        "Price": 9880000,
+        "Sqft": 11519.81
+    },
+    "4738 Elm Street": {
+        "Price": 6150000,
+        "Sqft": 6783.2
+    },
+    "3589 W 35Th Avenue": {
+        "Price": 3680000,
+        "Sqft": 6395.65
+    },
+    "2835 Oliver Crescent": {
+        "Price": 2888000,
+        "Sqft": 5956.91
+    },
+    "2837 Oliver Crescent": {
+        "Price": 2888000,
+        "Sqft": 0
+    },
+    "4062 W 39Th Avenue": {
+        "Price": 5980000,
+        "Sqft": 5846.39
+    },
+    "6262 Angus Drive": {
+        "Price": 10388000,
+        "Sqft": 8974.91
+    },
+    "6076 Angus Drive": {
+        "Price": 9580000,
+        "Sqft": 9752.75
+    },
+    "2876 W 42Nd Avenue": {
+        "Price": 3788000,
+        "Sqft": 4459.86
+    },
+    "6011 Adera Street": {
+        "Price": 9480000,
+        "Sqft": 9597.91
+    },
+    "3523 W 23Rd Avenue": {
+        "Price": 4098000,
+        "Sqft": 4027.94
+    },
+    "1576 W 59Th Avenue": {
+        "Price": 4080000,
+        "Sqft": 5489.56
+    },
+    "4429 Angus Drive": {
+        "Price": 5750000,
+        "Sqft": 9560.96
+    },
+    "6808 Angus Drive": {
+        "Price": 4890000,
+        "Sqft": 7921.96
+    },
+    "1925 Sw Marine Drive": {
+        "Price": 7880000,
+        "Sqft": 17978.03
+    },
+    "2023 W 36Th Avenue": {
+        "Price": 7500000,
+        "Sqft": 0
+    },
+    "5638 Maple Street": {
+        "Price": 4688000,
+        "Sqft": 10151.77
+    },
+    "6868 Adera Street": {
+        "Price": 5980000,
+        "Sqft": 11861.65
+    },
+    "2083 W 33Rd Avenue": {
+        "Price": 999000,
+        "Sqft": 0
+    },
+    "4053 W 32Nd Avenue": {
+        "Price": 2769000,
+        "Sqft": 4280.27
+    },
+    "1554 W 65Th Avenue": {
+        "Price": 2428000,
+        "Sqft": 3852.68
+    },
+    "3172 W 26Th Avenue": {
+        "Price": 2798000,
+        "Sqft": 4293.66
+    },
+    "3908 W 32Nd Avenue": {
+        "Price": 2780000,
+        "Sqft": 4285.44
+    },
+    "4658 Elm Street": {
+        "Price": 9680000,
+        "Sqft": 9412.69
+    },
+    "4078 W 32Nd Avenue": {
+        "Price": 4498000,
+        "Sqft": 4275.31
+    },
+    "2967 W 43Rd Avenue": {
+        "Price": 4680000,
+        "Sqft": 4960.38
+    },
+    "4393 Puget Drive": {
+        "Price": 4390000,
+        "Sqft": 6510.49
+    },
+    "4056 W 36Th Avenue": {
+        "Price": 6750000,
+        "Sqft": 6938.3
+    },
+    "7838 Angus Drive": {
+        "Price": 4798000,
+        "Sqft": 12046.61
+    },
+    "2288 W 22Nd Avenue": {
+        "Price": 4690000,
+        "Sqft": 6091.28
+    },
+    "2092 W 57Th Avenue": {
+        "Price": 2498000,
+        "Sqft": 5616.43
+    },
+    "Ph5 5555 Dunbar Street": {
+        "Price": 1680000,
+        "Sqft": 0
+    },
+    "3410 W 43Rd Avenue": {
+        "Price": 2988000,
+        "Sqft": 6595.88
+    },
+    "6350 Macdonald Street": {
+        "Price": 16800000,
+        "Sqft": 21413.76
+    },
+    "4422 Quesnel Drive": {
+        "Price": 8680000,
+        "Sqft": 6419.04
+    },
+    "6188 Adera Street": {
+        "Price": 16880000,
+        "Sqft": 14756.47
+    },
+    "3675 W 39Th Avenue": {
+        "Price": 3898000,
+        "Sqft": 9092.71
+    },
+    "1925 W 61St Avenue": {
+        "Price": 7888000,
+        "Sqft": 7955.36
+    },
+    "5669 Angus Drive": {
+        "Price": 7680000,
+        "Sqft": 11865.55
+    },
+    "2433 W 22Nd Avenue": {
+        "Price": 7780000,
+        "Sqft": 10300.2
+    },
+    "2072 W 43Rd Avenue": {
+        "Price": 3999000,
+        "Sqft": 7166.01
+    },
+    "2066 W 42Nd Avenue": {
+        "Price": 3698000,
+        "Sqft": 5842.71
+    },
+    "1638 W 61St Avenue": {
+        "Price": 3900000,
+        "Sqft": 6499.65
+    },
+    "2069 W 46Th Avenue": {
+        "Price": 4380000,
+        "Sqft": 6749.99
+    },
+    "5826 Angus Drive": {
+        "Price": 8980000,
+        "Sqft": 9579.61
+    },
+    "3803 W 26Th Avenue": {
+        "Price": 7380000,
+        "Sqft": 6456.82
+    },
+    "3979 W 33Rd Avenue": {
+        "Price": 4380000,
+        "Sqft": 6498.91
+    },
+    "3123 W 27Th Avenue": {
+        "Price": 3490000,
+        "Sqft": 4294.64
+    },
+    "3630 W 34Th Avenue": {
+        "Price": 6180000,
+        "Sqft": 6485.18
+    },
+    "5189 Connaught Drive": {
+        "Price": 8800000,
+        "Sqft": 11901.94
+    },
+    "4807 Paton Street": {
+        "Price": 4780000,
+        "Sqft": 6365.3
+    },
+    "2767 W 21St Avenue": {
+        "Price": 3699000,
+        "Sqft": 4020.61
+    },
+    "2471 Edgar Crescent": {
+        "Price": 3998000,
+        "Sqft": 4104.4
+    },
+    "2999 W 39Th Avenue": {
+        "Price": 4780000,
+        "Sqft": 5640.29
+    },
+    "2436 W 21St Avenue": {
+        "Price": 3449000,
+        "Sqft": 6096.82
+    },
+    "2135 W 37Th Avenue": {
+        "Price": 5980000,
+        "Sqft": 8798.49
+    },
+    "4006 W 34Th Avenue": {
+        "Price": 3950000,
+        "Sqft": 6536.49
+    },
+    "6630 Marine Crescent": {
+        "Price": 8500000,
+        "Sqft": 19472.82
+    },
+    "5961 Churchill Street": {
+        "Price": 14588000,
+        "Sqft": 13259.54
+    },
+    "4742 Collingwood Street": {
+        "Price": 5298000,
+        "Sqft": 5011.75
+    },
+    "3364 W 39Th Avenue": {
+        "Price": 3490000,
+        "Sqft": 5060.81
+    },
+    "3887 W 51St Avenue": {
+        "Price": 2798000,
+        "Sqft": 9789.76
+    },
+    "3617 W 35Th Avenue": {
+        "Price": 5680000,
+        "Sqft": 6492.02
+    },
+    "2128 W 20Th Avenue": {
+        "Price": 4188000,
+        "Sqft": 6091.33
+    },
+    "2005 Sw Marine Drive": {
+        "Price": 7880000,
+        "Sqft": 16267.8
+    },
+    "3590 W 39Th Avenue": {
+        "Price": 1677590,
+        "Sqft": 0
+    },
+    "1670 W 49Th Avenue": {
+        "Price": 6190000,
+        "Sqft": 10856.96
+    },
+    "5338 Laburnum Street": {
+        "Price": 4560000,
+        "Sqft": 9542.82
+    },
+    "3911 W King Edward Avenue": {
+        "Price": 3100000,
+        "Sqft": 5118.2
+    },
+    "3695 W 34Th Avenue": {
+        "Price": 6360000,
+        "Sqft": 6483.87
+    },
+    "2246 W 20Th Avenue": {
+        "Price": 7388000,
+        "Sqft": 6083.68
+    },
+    "2621 Mcbain Avenue": {
+        "Price": 3390000,
+        "Sqft": 6355.33
+    },
+    "6188 Wiltshire Street": {
+        "Price": 11980000,
+        "Sqft": 11227.62
+    },
+    "3531 W 37Th Avenue": {
+        "Price": 3950000,
+        "Sqft": 9271.05
+    },
+    "5707 Elm Street": {
+        "Price": 2599999,
+        "Sqft": 5536.8
+    },
+    "3663 Sw Marine Drive": {
+        "Price": 5200000,
+        "Sqft": 6459.81
+    },
+    "8483 Cornish Street": {
+        "Price": 3190000,
+        "Sqft": 5431.5
+    },
+    "1850 W 33Rd Avenue": {
+        "Price": 3280000,
+        "Sqft": 6759.86
+    },
+    "3839 W 35Th Avenue": {
+        "Price": 6388000,
+        "Sqft": 6516.2
+    },
+    "5361 Cypress Street": {
+        "Price": 5970000,
+        "Sqft": 9494.06
+    },
+    "1992 W 60Th Avenue": {
+        "Price": 5280000,
+        "Sqft": 7966.32
+    },
+    "3668 W 28Th Avenue": {
+        "Price": 3280000,
+        "Sqft": 6479.1
+    },
+    "2920 W 27Th Avenue": {
+        "Price": 7880000,
+        "Sqft": 4286.85
+    },
+    "6708 Cypress Street": {
+        "Price": 5280000,
+        "Sqft": 6480.91
+    },
+    "2718 Oliver Crescent": {
+        "Price": 3399900,
+        "Sqft": 6505.66
+    },
+    "1770 W 62Nd Avenue": {
+        "Price": 5580000,
+        "Sqft": 7034.53
+    },
+    "2056 W 29Th Avenue": {
+        "Price": 3638000,
+        "Sqft": 5961.86
+    },
+    "5846 Angus Drive": {
+        "Price": 4799000,
+        "Sqft": 9567.76
+    },
+    "3335 Mayfair Avenue": {
+        "Price": 3830000,
+        "Sqft": 5457.27
+    },
+    "7128 Adera Street": {
+        "Price": 2088000,
+        "Sqft": 0
+    },
+    "4698 Angus Drive": {
+        "Price": 5680000,
+        "Sqft": 9987.75
+    },
+    "3579 W 50Th Avenue": {
+        "Price": 3980000,
+        "Sqft": 9613.81
+    },
+    "7878 Angus Drive": {
+        "Price": 6990000,
+        "Sqft": 15250.3
+    },
+    "6516 Wiltshire Street": {
+        "Price": 3198000,
+        "Sqft": 3955.02
+    },
+    "5978 Angus Drive": {
+        "Price": 5688000,
+        "Sqft": 9706.72
+    },
+    "3550 W 47Th Avenue": {
+        "Price": 4400000,
+        "Sqft": 13255.66
+    },
+    "6836 Arbutus Street": {
+        "Price": 9980000,
+        "Sqft": 17309.08
+    },
+    "2287 W 37Th Avenue": {
+        "Price": 5480000,
+        "Sqft": 10007.39
+    },
+    "5038 Arbutus Street": {
+        "Price": 8388000,
+        "Sqft": 5579.71
+    },
+    "2551 W 35Th Avenue": {
+        "Price": 4680000,
+        "Sqft": 7786.03
+    },
+    "2589 W 35Th Avenue": {
+        "Price": 7680000,
+        "Sqft": 7798.05
+    },
+    "4987 Connaught Drive": {
+        "Price": 5490000,
+        "Sqft": 16686.97
+    },
+    "1610 Roxburgh Crescent": {
+        "Price": 3790000,
+        "Sqft": 0
+    },
+    "1960 W 42Nd Avenue": {
+        "Price": 3250000,
+        "Sqft": 0
+    },
+    "1958 W 42Nd Avenue": {
+        "Price": 3250000,
+        "Sqft": 5899.47
+    },
+    "2769 W 49Th Avenue": {
+        "Price": 6988000,
+        "Sqft": 14163.93
+    },
+    "3607 Sw Marine Drive": {
+        "Price": 7600000,
+        "Sqft": 9689.41
+    },
+    "3637 Sw Marine Drive": {
+        "Price": 6800000,
+        "Sqft": 7740.72
+    },
+    "7216 Angus Drive": {
+        "Price": 5980000,
+        "Sqft": 7764.56
+    },
+    "2237 W 37Th Avenue": {
+        "Price": 7980000,
+        "Sqft": 9059.37
+    },
+    "6809 Arbutus Street": {
+        "Price": 5800000,
+        "Sqft": 13825.83
+    },
+    "4239 Pine Crescent": {
+        "Price": 7580000,
+        "Sqft": 7939.34
+    },
+    "3853 W King Edward Avenue": {
+        "Price": 4399000,
+        "Sqft": 4695.04
+    },
+    "3008 W 21St Avenue": {
+        "Price": 2599000,
+        "Sqft": 4023.28
+    },
+    "6615 Balsam Street": {
+        "Price": 15700000,
+        "Sqft": 11797.41
+    },
+    "2128 W 21St Avenue": {
+        "Price": 6988000,
+        "Sqft": 6081.39
+    },
+    "6238 Churchill Street": {
+        "Price": 14880000,
+        "Sqft": 13252.65
+    },
+    "3288 W 23Rd Avenue": {
+        "Price": 4386000,
+        "Sqft": 4033.6
+    },
+    "3628 W 38Th Avenue": {
+        "Price": 6990000,
+        "Sqft": 9087.53
+    },
+    "4475 Maple Street": {
+        "Price": 3788000,
+        "Sqft": 6997.04
+    },
+    "4575 Alexandra Street": {
+        "Price": 4777000,
+        "Sqft": 9325.98
+    },
+    "5712 Crown Street": {
+        "Price": 3699000,
+        "Sqft": 6713.23
+    },
+    "3941 W 33Rd Avenue": {
+        "Price": 2890000,
+        "Sqft": 4337.84
+    },
+    "1649 W 69Th Avenue": {
+        "Price": 2888000,
+        "Sqft": 8531.26
+    },
+    "1573 W 66Th Avenue": {
+        "Price": 2688000,
+        "Sqft": 3926.37
+    },
+    "5480 Collingwood Street": {
+        "Price": 3498000,
+        "Sqft": 6635.88
+    },
+    "3594 W King Edward Avenue": {
+        "Price": 5500000,
+        "Sqft": 6521.68
+    },
+    "3582 W King Edward Avenue": {
+        "Price": 5000000,
+        "Sqft": 6513.58
+    },
+    "3588 W King Edward Avenue": {
+        "Price": 5000000,
+        "Sqft": 6511.92
+    },
+    "1678 Somerset Crescent": {
+        "Price": 11500000,
+        "Sqft": 25343.71
+    },
+    "2850 W 32Nd Avenue": {
+        "Price": 3688888,
+        "Sqft": 4291.05
+    },
+    "3249 W 33Rd Avenue": {
+        "Price": 4390000,
+        "Sqft": 4285.82
+    },
+    "6330 Macdonald Street": {
+        "Price": 26888000,
+        "Sqft": 21462.41
+    },
+    "3088 W 21St Avenue": {
+        "Price": 3750000,
+        "Sqft": 5492.74
+    },
+    "3513 W 40Th Avenue": {
+        "Price": 4388000,
+        "Sqft": 6697.36
+    },
+    "5688 Wallace Street": {
+        "Price": 3288000,
+        "Sqft": 8728.33
+    },
+    "4184 Cypress Street": {
+        "Price": 5180000,
+        "Sqft": 8990.25
+    },
+    "3330 W 41St Avenue": {
+        "Price": 3340000,
+        "Sqft": 6175.4
+    },
+    "7450 Balaclava Street": {
+        "Price": 3875000,
+        "Sqft": 0
+    },
+    "6299 Angus Drive": {
+        "Price": 9880000,
+        "Sqft": 9267.65
+    },
+    "6037 Angus Drive": {
+        "Price": 12700000,
+        "Sqft": 10580.5
+    },
+    "5912 Churchill Street": {
+        "Price": 11880000,
+        "Sqft": 13260.57
+    },
+    "3256 W 21St Avenue": {
+        "Price": 5580000,
+        "Sqft": 5367.67
+    },
+    "2960 W 41St Avenue": {
+        "Price": 2495000,
+        "Sqft": 4327.81
+    },
+    "3853 W 38Th Avenue": {
+        "Price": 7680000,
+        "Sqft": 6835.65
+    },
+    "2814 W 32Nd Avenue": {
+        "Price": 2998888,
+        "Sqft": 4289.28
+    },
+    "3584 East Boulevard": {
+        "Price": 3699900,
+        "Sqft": 7786.57
+    },
+    "8083 Angus Drive": {
+        "Price": 10888000,
+        "Sqft": 9953.67
+    },
+    "5987 Wiltshire Street": {
+        "Price": 5280000,
+        "Sqft": 9704.48
+    },
+    "2146 W 33Rd Avenue": {
+        "Price": 3580000,
+        "Sqft": 7887.6
+    },
+    "5776 Angus Drive": {
+        "Price": 5299000,
+        "Sqft": 9009.12
+    },
+    "6187 Macdonald Street": {
+        "Price": 5398000,
+        "Sqft": 12623.06
+    },
+    "6338 Vine Street": {
+        "Price": 2980000,
+        "Sqft": 4144.05
+    },
+    "3346 W 41St Avenue": {
+        "Price": 3500000,
+        "Sqft": 6056.41
+    },
+    "1735 W 62Nd Avenue": {
+        "Price": 3198000,
+        "Sqft": 6505.21
+    },
+    "8184 East Boulevard": {
+        "Price": 3299000,
+        "Sqft": 5422.3
+    },
+    "7165 Maple Street": {
+        "Price": 5700000,
+        "Sqft": 7735.91
+    },
+    "4022 W 30Th Avenue": {
+        "Price": 6790000,
+        "Sqft": 6899.71
+    },
+    "3356 W 41St Avenue": {
+        "Price": 3200000,
+        "Sqft": 4647.73
+    },
+    "6038 Marguerite Street": {
+        "Price": 12880000,
+        "Sqft": 9582.55
+    },
+    "6388 Wiltshire Street": {
+        "Price": 12980000,
+        "Sqft": 14246.97
+    },
+    "5286 Mackenzie Street": {
+        "Price": 3589000,
+        "Sqft": 1344.28
+    },
+    "2138 W 48Th Avenue": {
+        "Price": 2549000,
+        "Sqft": 4290.51
+    },
+    "6037 Churchill Street": {
+        "Price": 11888000,
+        "Sqft": 13260.86
+    },
+    "3550-3560 Maple Street": {
+        "Price": 10988000,
+        "Sqft": 0
+    },
+    "3875 W 36Th Avenue": {
+        "Price": 6388000,
+        "Sqft": 7733.91
+    },
+    "6376 Collingwood Street": {
+        "Price": 5450000,
+        "Sqft": 16577.57
+    },
+    "2862 W 22Nd Avenue": {
+        "Price": 2990000,
+        "Sqft": 4755.78
+    },
+    "5666 Maple Street": {
+        "Price": 8800000,
+        "Sqft": 10130.15
+    },
+    "7250 Marguerite Street": {
+        "Price": 7680000,
+        "Sqft": 8720.17
+    },
+    "6664 Balsam Street": {
+        "Price": 3988900,
+        "Sqft": 3459.23
+    },
+    "3904 W 21St Avenue": {
+        "Price": 2890000,
+        "Sqft": 4023.53
+    },
+    "6422 Laburnum Street": {
+        "Price": 3180000,
+        "Sqft": 4128.6
+    },
+    "2250 Sw Marine Drive": {
+        "Price": 4380000,
+        "Sqft": 26799.11
+    },
+    "6610 Churchill Street": {
+        "Price": 9580000,
+        "Sqft": 11756.53
+    },
+    "1662 W 61St Avenue": {
+        "Price": 4588000,
+        "Sqft": 6510.12
+    },
+    "2571 W 36Th Avenue": {
+        "Price": 4980000,
+        "Sqft": 8016.32
+    },
+    "3456 W 29Th Avenue": {
+        "Price": 2380000,
+        "Sqft": 4285.89
+    },
+    "1626 W 58Th Avenue": {
+        "Price": 5680000,
+        "Sqft": 5606.9
+    },
+    "4267 Doncaster Way": {
+        "Price": 3980000,
+        "Sqft": 8494.34
+    },
+    "2134 W 53Rd Avenue": {
+        "Price": 3680000,
+        "Sqft": 7301.65
+    },
+    "3741 W 37Th Avenue": {
+        "Price": 6280000,
+        "Sqft": 6514.06
+    },
+    "6812 Arbutus Street": {
+        "Price": 6550000,
+        "Sqft": 21922.0
+    },
+    "2016 W 48Th Avenue": {
+        "Price": 3800000,
+        "Sqft": 6391.08
+    },
+    "3894 Quesnel Drive": {
+        "Price": 5888000,
+        "Sqft": 4090.01
+    },
+    "1958 W 62Nd Avenue": {
+        "Price": 3480000,
+        "Sqft": 6676.61
+    },
+    "3617 W 48Th Avenue": {
+        "Price": 3500000,
+        "Sqft": 8586.86
+    },
+    "2111 W 34Th Avenue": {
+        "Price": 9000000,
+        "Sqft": 13362.68
+    },
+    "6655 Marguerite Street": {
+        "Price": 7988000,
+        "Sqft": 12662.15
+    },
+    "5737 Olympic Street": {
+        "Price": 5310000,
+        "Sqft": 7936.06
+    },
+    "3321 W 37Th Avenue": {
+        "Price": 3160000,
+        "Sqft": 6483.98
+    },
+    "4723 Puget Drive": {
+        "Price": 6980000,
+        "Sqft": 8118.62
+    },
+    "6491 Mackenzie Place": {
+        "Price": 4390000,
+        "Sqft": 11977.43
+    },
+    "2106 W 33Rd Avenue": {
+        "Price": 5500000,
+        "Sqft": 8637.31
+    },
+    "2118 W 33Rd Avenue": {
+        "Price": 5250000,
+        "Sqft": 7815.79
+    },
+    "2122 W 33Rd Avenue": {
+        "Price": 5250000,
+        "Sqft": 7840.63
+    },
+    "2793 Alamein Avenue": {
+        "Price": 2948000,
+        "Sqft": 0
+    },
+    "1919 W 57Th Avenue": {
+        "Price": 15800000,
+        "Sqft": 13145.79
+    },
+    "6869 Beechwood Street": {
+        "Price": 8580000,
+        "Sqft": 11795.73
+    },
+    "1850 Sw Marine Drive": {
+        "Price": 8500000,
+        "Sqft": 36333.96
+    },
+    "4463 Haggart Street": {
+        "Price": 3680000,
+        "Sqft": 7433.63
+    },
+    "7637 West Boulevard": {
+        "Price": 4350000,
+        "Sqft": 9442.49
+    },
+    "3320 W 41St Avenue": {
+        "Price": 5900000,
+        "Sqft": 9286.29
+    },
+    "6065 Dunbar Street": {
+        "Price": 4250000,
+        "Sqft": 7779.64
     }
 }

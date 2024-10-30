@@ -15,25 +15,13 @@
 6261 Adera Street
 2320 W 40Th Avenue
 1649 W 29Th Avenue
-4885 Valley Drive
 4091 Springtree Drive
+4885 Valley Drive
 2936 W 41St Avenue
 6519 Cypress Street
 3538 W 30Th Avenue
 5755 Angus Drive
 4101 Yew Street
-2275 W 40Th Avenue
-2105 W 42Nd Avenue
-1628 Nanton Avenue
-3823 Cypress Street
-2025 Sw Marine Drive
-1529 W 66Th Avenue
-1655 W 41St Avenue
-2180 W 48Th Avenue
-2817 Oliver Crescent
-3824 W 50Th Avenue
-6210 Larch Street
-1837 Matthews Avenue
 2 Tamath Crescent
 3631 W 26Th Avenue
 2105 W 46 Th Avenue
@@ -79,3 +67,324 @@
 1571 W 57Th Avenue
 6161 Macdonald Street
 4085 Puget Drive
+3981 W 35Th Avenue
+3449 W 22Nd Avenue
+2642 W 45Th Avenue
+2102 W 48Th Avenue
+1766 W 68Th Avenue
+6729 Wiltshire Street
+8588 Cornish Street
+3439 W 27Th Avenue
+4685 Valley Drive
+3706 W King Edward Avenue
+6026 Angus Drive
+1658 W 28Th Avenue
+8555 Granville Street
+4254 Staulo Crescent
+3651 W 48Th Street
+4011 Vine Street
+4426 Arbutus Street
+3758 W 35Th Avenue
+2971 W 31St Avenue
+2050 W 57Th Avenue
+4883 Maclure Mews
+1521 W 61 Avenue
+4637 Angus Drive
+3593 W 29Th Avenue
+6530 Angus Drive
+6051 Collingwood Place
+6059 Collingwood Place
+2108 W 38Th Avenue
+2150 W 40Th Avenue
+6576 Yew Street
+4930 Dunbar Street
+1957 Aspen Avenue
+6675 Laburnum Street
+4005 Vine Street
+2671 Mcbain Avenue
+3306 Mayfair Avenue
+3304 Mayfair Avenue
+5503 Blenheim Street
+2188 W 21St Avenue
+2683 W 21St Avenue
+6524 Angus Drive
+2115 W 34Th Avenue
+2728 Oliver Crescent
+1950 W 36Th Avenue
+2975 W 22Nd Avenue
+2984 W 31St Avenue
+1591 Nanton Avenue
+2056 Sw Marine Drive
+2066 Sw Marine Drive
+Ph4 2089 W 43Rd Avenue
+2133 W 49Th Avenue
+3688 W 49Th Avenue
+5611 Elm Street
+3688 W King Edward Avenue
+8488 Cornish Street
+2937 W 45Th Avenue
+3169 W 45Th Avenue
+2903 W 21St Avenue
+6968 Churchill Street
+3070 W 44Th Avenue
+1706 W 68Th Avenue
+3522 W 42Nd Avenue
+Ph1 5723 Balsam Street
+3596 W 28Th Avenue
+3838 W 50Th Avenue
+2870 Sw Marine Drive
+3530 W 34Th Avenue
+3357 W 26Th Avenue
+5723 Collingwood Street
+7216 Beechwood Street
+2250 W 43Rd Avenue
+4738 Elm Street
+3589 W 35Th Avenue
+2835 Oliver Crescent
+2837 Oliver Crescent
+4062 W 39Th Avenue
+6262 Angus Drive
+6076 Angus Drive
+2876 W 42Nd Avenue
+6011 Adera Street
+3523 W 23Rd Avenue
+1534 W 71St Avenue
+2789 Alamein Avenue
+1576 W 59Th Avenue
+4429 Angus Drive
+6808 Angus Drive
+1925 Sw Marine Drive
+2023 W 36Th Avenue
+5638 Maple Street
+6868 Adera Street
+2288 W 40Th Avenue
+3852 W 50 Avenue
+2083 W 33Rd Avenue
+4053 W 32Nd Avenue
+1554 W 65Th Avenue
+3172 W 26Th Avenue
+3580 W 41St Avenue
+3908 W 32Nd Avenue
+Ph8 5788 Vine Street
+4658 Elm Street
+4078 W 32Nd Avenue
+2967 W 43Rd Avenue
+4393 Puget Drive
+4056 W 36Th Avenue
+7838 Angus Drive
+2288 W 22Nd Avenue
+2092 W 57Th Avenue
+Ph5 5555 Dunbar Street
+3410 W 43Rd Avenue
+6350 Macdonald Street
+4422 Quesnel Drive
+4059 Arbutus Street
+6188 Adera Street
+1790 Angus Drive
+3675 W 39Th Avenue
+1925 W 61St Avenue
+5669 Angus Drive
+7228 Adera Street
+2433 W 22Nd Avenue
+2072 W 43Rd Avenue
+2066 W 42Nd Avenue
+1638 W 61St Avenue
+2069 W 46Th Avenue
+5826 Angus Drive
+4759 Valley Drive
+3737 Pine Crescent
+3803 W 26Th Avenue
+3979 W 33Rd Avenue
+2608 W 41St Avenue
+6612 Arbutus Street
+5723 Balsam Street
+3123 W 27Th Avenue
+3630 W 34Th Avenue
+5189 Connaught Drive
+4807 Paton Street
+2767 W 21St Avenue
+3936 Quesnel Street
+2471 Edgar Crescent
+2999 W 39Th Avenue
+2436 W 21St Avenue
+2135 W 37Th Avenue
+4006 W 34Th Avenue
+2096 W 47Th Avenue
+6630 Marine Crescent
+2165 W 40Th Avenue
+3590 W 26Th Avenue
+5961 Churchill Street
+4742 Collingwood Street
+3364 W 39Th Avenue
+3641 W 29Th Avenue
+3887 W 51St Avenue
+3617 W 35Th Avenue
+2128 W 20Th Avenue
+2005 Sw Marine Drive
+3590 W 39Th Avenue
+7275 Blenheim Street
+1670 W 49Th Avenue
+5338 Laburnum Street
+3911 W King Edward Avenue
+2929 W 24 Avenue
+5475 Vine Street
+3695 W 34Th Avenue
+2246 W 20Th Avenue
+7067 Cypress Street
+8659 Sw Marine Drive
+3691 W 21 Avenue
+2621 Mcbain Avenue
+6188 Wiltshire Street
+3531 W 37Th Avenue
+5707 Elm Street
+3663 Sw Marine Drive
+8483 Cornish Street
+1850 W 33Rd Avenue
+3839 W 35Th Avenue
+1603 Matthews Avenue
+5361 Cypress Street
+1992 W 60Th Avenue
+6650 Balaclava Street
+3668 W 28Th Avenue
+2920 W 27Th Avenue
+6708 Cypress Street
+2718 Oliver Crescent
+2864 W 32 Avenue
+4106 Staulo Crescent
+1770 W 62Nd Avenue
+2056 W 29Th Avenue
+5846 Angus Drive
+3335 Mayfair Avenue
+7059 Cypress Street
+7128 Adera Street
+4698 Angus Drive
+3579 W 50Th Avenue
+7878 Angus Drive
+6516 Wiltshire Street
+5978 Angus Drive
+3550 W 47Th Avenue
+6836 Arbutus Street
+6786 Blenheim Street
+2287 W 37Th Avenue
+6926 Blenheim Street
+5038 Arbutus Street
+2551 W 35Th Avenue
+2589 W 35Th Avenue
+4987 Connaught Drive
+1610 Roxburgh Crescent
+1960 W 42Nd Avenue
+1958 W 42Nd Avenue
+2769 W 49Th Avenue
+3607 Sw Marine Drive
+3637 Sw Marine Drive
+7216 Angus Drive
+2237 W 37Th Avenue
+6809 Arbutus Street
+4239 Pine Crescent
+3853 W King Edward Avenue
+6975 Prescott Street
+3008 W 21St Avenue
+6615 Balsam Street
+3170 W 26Th Avenue
+2128 W 21St Avenue
+6238 Churchill Street
+3288 W 23Rd Avenue
+3628 W 38Th Avenue
+4475 Maple Street
+4575 Alexandra Street
+5712 Crown Street
+3941 W 33Rd Avenue
+1649 W 69Th Avenue
+2106 Sw Marine Drive
+1573 W 66Th Avenue
+5480 Collingwood Street
+3594 W King Edward Avenue
+3582 W King Edward Avenue
+3588 W King Edward Avenue
+1678 Somerset Crescent
+2850 W 32Nd Avenue
+3186 W 42 Avenue
+3249 W 33Rd Avenue
+1577 W 57Th Avenue
+6330 Macdonald Street
+3088 W 21St Avenue
+Ph510 2102 W 48Th Avenue
+3513 W 40Th Avenue
+5688 Wallace Street
+4184 Cypress Street
+3330 W 41St Avenue
+7450 Balaclava Street
+6299 Angus Drive
+6037 Angus Drive
+5912 Churchill Street
+3256 W 21St Avenue
+2960 W 41St Avenue
+3853 W 38Th Avenue
+2814 W 32Nd Avenue
+3584 East Boulevard
+2181 W 40Th Avenue
+8083 Angus Drive
+5987 Wiltshire Street
+2146 W 33Rd Avenue
+5776 Angus Drive
+6187 Macdonald Street
+6338 Vine Street
+3346 W 41St Avenue
+1735 W 62Nd Avenue
+8184 East Boulevard
+7165 Maple Street
+4022 W 30Th Avenue
+3356 W 41St Avenue
+6038 Marguerite Street
+6388 Wiltshire Street
+5286 Mackenzie Street
+5325 West Boulevard
+2138 W 48Th Avenue
+6037 Churchill Street
+3550-3560 Maple Street
+3875 W 36Th Avenue
+6376 Collingwood Street
+2862 W 22Nd Avenue
+5666 Maple Street
+2140 Briar Avenue
+7250 Marguerite Street
+6664 Balsam Street
+Ph 506 2102 W 48Th Avenue
+3904 W 21St Avenue
+B-5061 Blenheim Street
+A 5061 Blenheim Street
+4082 Macdonald Street
+6422 Laburnum Street
+8535 Captains Cove
+2250 Sw Marine Drive
+6610 Churchill Street
+1662 W 61St Avenue
+2571 W 36Th Avenue
+3456 W 29Th Avenue
+1626 W 58Th Avenue
+4267 Doncaster Way
+2134 W 53Rd Avenue
+1553 W 57Th Avenue
+3741 W 37Th Avenue
+6812 Arbutus Street
+2016 W 48Th Avenue
+3894 Quesnel Drive
+1958 W 62Nd Avenue
+3617 W 48Th Avenue
+2111 W 34Th Avenue
+6655 Marguerite Street
+5737 Olympic Street
+3321 W 37Th Avenue
+4723 Puget Drive
+6491 Mackenzie Place
+2106 W 33Rd Avenue
+2118 W 33Rd Avenue
+2122 W 33Rd Avenue
+2793 Alamein Avenue
+1919 W 57Th Avenue
+6869 Beechwood Street
+1850 Sw Marine Drive
+4463 Haggart Street
+7637 West Boulevard
+3320 W 41St Avenue
+6065 Dunbar Street
